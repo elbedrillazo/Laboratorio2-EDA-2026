@@ -1,6 +1,6 @@
-public interface Fila<T> {
-void enqueue(T item);
-T dequeue();
+public interface Pila<T>{
+void push(T item);
+T pop();
 T peek();
 boolean isEmpty();
 int size();
