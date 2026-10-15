@@ -13,6 +13,7 @@ import
 import 
 
 public class Experimento {
+  private Experimento {}
   public static void main(String[] args) {
     System.out.println("empieza experimento");
       
