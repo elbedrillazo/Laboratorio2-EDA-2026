@@ -1,3 +1,4 @@
+import java.util.List;
 public class WebCrawlerOffline {
     public boolean validarEtiquetas(String[] tokens, Pila<String> pila) {
         for (int i = 0; i < tokens.length; i++) {
