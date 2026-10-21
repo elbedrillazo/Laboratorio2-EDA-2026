@@ -1,5 +1,15 @@
 import java.util.List;
+/**
+Clase principal del web crawler.
+Se encarga de revisar que el html este bien armado y de recorrer los links de las paginas.
+*/
 public class WebCrawlerOffline {
+    /**
+    Revisa que las etiquetas del documento se abran y cierrern en el orden correcto.
+    @param tokens Arreglo con las etiquetas que se van a leer.
+    @param pila Pila vacia para ir guardando y sacando las etiquetas.
+    @return true si todo esta bien cerrado, false si hay algun error.
+    */
     public boolean validarEtiquetas(String[] tokens, Pila<String> pila) {
         for (int i = 0; i < tokens.length; i++) {
             String etiquetaActual = tokens[i];
@@ -19,6 +29,12 @@ public class WebCrawlerOffline {
         }
         return pila.isEmpty(); //se abrio todo correctamente
     }
+    /**
+    Recorre todas las paginas del sitio web usando una fila para no perden el orden.
+    @param sitio El sitio web que vamos a explorar
+    @param paginaInicial El numero de la pagina por donde empezamos
+    @return La cantidad de paginas que logramos visitar.
+    */
     public int recorrerSitio(GeneradorWeb sitio, int paginaInicial, Fila<Integer> frontera) { 
         int totalPaginas = sitio.cantidadPaginas();
         boolean[] descubiertas = new boolean[totalPaginas]; //para guardar paginas revisadas y no repetirlas
