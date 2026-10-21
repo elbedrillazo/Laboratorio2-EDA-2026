@@ -1,4 +1,4 @@
-public class PilaEnlazada<T> implements Pila<T> {
+public class PilaEnlazada implements Stack {
     private class Nodo {
         T dato;
         Nodo siguiente;
