@@ -33,7 +33,7 @@ public class PilaArreglo<T> implements Pila<T> {
         }
         cantidad--;
         T item = arreglo[cantidad]; //se saca el elemento
-        arreglo[cantidad] = null // esto es para evitar el loitering
+        arreglo[cantidad] = null; // esto es para evitar el loitering
         return item;
     }
     public T peek() {
