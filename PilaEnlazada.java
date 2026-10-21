@@ -3,36 +3,36 @@ public class PilaEnlazada implements Stack {
         T dato;
         Nodo siguiente;
     }
-    private Nodo final;
+    private Nodo tope;
     private int cantidad;
     public PilaEnlazada() {
-        final = null;
+        tope = null;
         cantidad = 0;
     }
     public void push(T item) {
-        Nodo viejoFinal = final; 
-        final = new Nodo();
-        final.dato = item;
-        final.siguiente = viejoFinal; //nodo nuevo encima del nodo viejo
+        Nodo viejoFinal = tope; 
+        tope = new Nodo();
+        tope.dato = item;
+        tope.siguiente = viejoTope; //nodo nuevo encima del nodo viejo
         cantidad++;
     }
     public T pop() {
         if (isEmpty()) {
-            System.out.println("La pila esta vacia");
+            return null;
         }
-        T item = final.dato;
-        final = final.siguiente;
+        T item = tope.dato;
+        tope = tope.siguiente;
         cantidad--;
         return item;
     }
     public T peek() {
         if (isEmpty()) {
-            System.out.println("La pila esta vacia");
+            return null;
         }
-        return final.dato;
+        return tope.dato;
     }
     public boolean isEmpty() {
-        return final == null;
+        return tope == null;
     }
     public int size() {
         return cantidad;
