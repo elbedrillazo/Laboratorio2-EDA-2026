@@ -39,9 +39,10 @@ public class FilaArreglo implements Queue {
     }
     public T dequeue() {
         if (isEmpty()) { //esta vacio
-            System.out.println("La fila esta vacia");
+            return null;
         }
         T item = arreglo[inicio];
+        arreglo[inicio] = null // evitamos loitering
         cantidad--;
         inicio++;
         if (inicio == arreglo.length) { //si llega al final se reinicia valor
@@ -51,7 +52,7 @@ public class FilaArreglo implements Queue {
     }
     public T peek() {
         if (isEmpty()) {
-            System.out.println("La fila esta vacia");
+            return null;
         }
         return arreglo[inicio];
     }
