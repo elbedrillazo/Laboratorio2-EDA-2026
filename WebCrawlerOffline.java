@@ -33,6 +33,7 @@ public class WebCrawlerOffline {
     Recorre todas las paginas del sitio web usando una fila para no perden el orden.
     @param sitio El sitio web que vamos a explorar
     @param paginaInicial El numero de la pagina por donde empezamos
+    @param frontera Fila vacia para ir encolando las paginas que encontramos
     @return La cantidad de paginas que logramos visitar.
     */
     public int recorrerSitio(GeneradorWeb sitio, int paginaInicial, Fila<Integer> frontera) { 
