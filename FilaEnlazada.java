@@ -26,7 +26,7 @@ public class FilaEnlazada implements Queue{
     }
     public T dequeue(){
         if (isEmpty()){
-            System.out.println("La fila está vacía");
+            System.out.println("La fila esta vacia");
         }
         T item = frente.dato;
         frente = frente.siguiente; 
@@ -38,7 +38,7 @@ public class FilaEnlazada implements Queue{
     }
     public T peek() { //solo se mira el frente
         if (isEmpty()){
-            System.out.println("La fila está vacía");
+            System.out.println("La fila esta vacia");
         }
         return frente.dato;
     }
