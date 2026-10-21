@@ -1,4 +1,4 @@
-public class PilaArreglo<T> implements Pila<T> {
+public class PilaArreglo implements Stack {
     private T[] arreglo;
     private int cantidad;
     private int cantidadRedimensionamientos;
@@ -29,7 +29,7 @@ public class PilaArreglo<T> implements Pila<T> {
     }
     public T pop() {
         if (isEmpty()) {
-            System.out.println("La pila está vacía");
+            System.out.println("La pila esta vacia");
         }
         cantidad--;
         T item = arreglo[cantidad]; //se saca el elemento
@@ -37,7 +37,7 @@ public class PilaArreglo<T> implements Pila<T> {
     }
     public T peek() {
         if (isEmpty()) {
-            System.out.println("La pila está vacía");
+            System.out.println("La pila esta vacia");
         }
         return arreglo[cantidad - 1];
     }
