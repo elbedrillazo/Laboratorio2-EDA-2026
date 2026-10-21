@@ -1,26 +1,70 @@
-/* se implementa 
-  public int getCantidadRedimensionamientos ()
-  public int getCapacidadMaximaObservada ()
-*/
-public class FilaArreglo<T> implements Fila<T> {
-  public void enqueue (T item) {
-  }
-  public T dequeue() {
-    return null;
-  }
-  public T peek() {
-    return null;
-  }
-  public boolean isEmpty() {
-    return true;
-  }
-  public int size() {
-    return 0;
-  }
-
-public int getCantidadRedimensionamientos() {
-  return 0;
+public class FilaArreglo implements Queue {
+    private T[] arreglo;
+    private int cantidad;
+    private int inicio;
+    private int fin;
+    private int cantidadRedimensionamientos;
+    private int capacidadMaximaObservada;
+    public FilaArreglo() {
+        arreglo = (T[]) new Object[2];
+        cantidad = 0;
+        inicio = 0;
+        fin = 0;
+        cantidadRedimensionamientos = 0;
+        capacidadMaximaObservada = 2; //maxima capacidad 2
+    }
+    private void redimensionar(int nuevaCapacidad) {
+        cantidadRedimensionamientos++; //registra el redimensionamiento
+        if (nuevaCapacidad > capacidadMaximaObservada) { //si es nuevo se guarda
+            capacidadMaximaObservada = nuevaCapacidad;
+        }
+        T[] nuevoArreglo = (T[]) new Object[nuevaCapacidad]; //areglo mnuevo
+        for (int i = 0; i < cantidad; i++) {
+            nuevoArreglo[i] = arreglo[(inicio + i) % arreglo.length]; 
+        }
+        arreglo = nuevoArreglo; //reemplazamo
+        inicio = 0;
+        fin = cantidad;
+    }
+    public void enqueue(T item) {
+        if (cantidad == arreglo.length) {
+            redimensionar(2 * arreglo.length); //duplicar su tamaño
+        }
+        arreglo[fin] = item;
+        fin++;
+        if (fin == arreglo.length) {
+            fin = 0; //si llega al final 
+        }
+        cantidad++;
+    }
+    public T dequeue() {
+        if (isEmpty()) { //esta vacio
+            System.out.println("La fila está vacía");
+        }
+        T item = arreglo[inicio];
+        cantidad--;
+        inicio++;
+        if (inicio == arreglo.length) { //si llega al final se reinicia valor
+            inicio = 0;
+        }
+        return item;
+    }
+    public T peek() {
+        if (isEmpty()) {
+            System.out.println("La fila está vacía");
+        }
+        return arreglo[inicio];
+    }
+    public boolean isEmpty() {
+        return cantidad == 0;
+    }
+    public int size() {
+        return cantidad;
+    }
+    public int getCantidadRedimensionamientos() {
+        return cantidadRedimensionamientos;
+    }
+    public int getCapacidadMaximaObservada() {
+        return capacidadMaximaObservada;
+    }
 }
-  public int getCapacidadMaximaObservada() {
-    return 0;
-  }
