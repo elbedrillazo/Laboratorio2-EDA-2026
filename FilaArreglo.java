@@ -1,4 +1,4 @@
-public class FilaArreglo implements Queue {
+public class FilaArreglo<T> implements Fila<T> {
     private T[] arreglo;
     private int cantidad;
     private int inicio;
@@ -42,7 +42,7 @@ public class FilaArreglo implements Queue {
             return null;
         }
         T item = arreglo[inicio];
-        arreglo[inicio] = null // evitamos loitering
+        arreglo[inicio] = null; // evitamos loitering
         cantidad--;
         inicio++;
         if (inicio == arreglo.length) { //si llega al final se reinicia valor
