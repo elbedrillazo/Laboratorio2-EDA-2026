@@ -1,4 +1,4 @@
-public class PilaEnlazada implements Stack {
+public class PilaEnlazada<T> implements Pila<T> {
     private class Nodo {
         T dato;
         Nodo siguiente;
@@ -10,7 +10,7 @@ public class PilaEnlazada implements Stack {
         cantidad = 0;
     }
     public void push(T item) {
-        Nodo viejoFinal = tope; 
+        Nodo viejoTope = tope; 
         tope = new Nodo();
         tope.dato = item;
         tope.siguiente = viejoTope; //nodo nuevo encima del nodo viejo
